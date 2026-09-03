@@ -22,7 +22,7 @@ class HelloWorld {
             else
             {
                 Console.WriteLine("Некоректний вибір зброї!");
-                Console.ResetColor();
             }
+    Console.ResetColor();
   }
 }
