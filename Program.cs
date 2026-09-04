@@ -13,11 +13,17 @@ class HelloWorld {
                 Console.ForegroundColor = ConsoleColor.Red;
                 while (bosshp > 0)
                 {
-                    Console.WriteLine($"### {name} зносить {power[weapons - 1]} урона боссу");
+                    if (bosshp <=0){
+                        break;
+                    }
+                    else{
+                    Console.WriteLine($"## {name} зносить {power[weapons - 1]} урона боссу ##");
                     bosshp -= power[weapons - 1];
-                }
+                    Console.WriteLine($"у босса залишилося {bosshp} хп");
+                }}
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Ви перемогли босса");
+                
             }
             else
             {
