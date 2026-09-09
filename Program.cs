@@ -11,7 +11,7 @@ public class Hero
     }
     public void Hit(Hero target)
     {
-        target. Health -= BaseAttack;
+        target.Health -= BaseAttack;
         Console.WriteLine($"{Name} атакує {target.Name} i завдає {BaseAttack} шкоди!");
         }
 }
