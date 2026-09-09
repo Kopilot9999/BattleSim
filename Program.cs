@@ -24,7 +24,7 @@ class Program
         Hero monster = new Hero { Name = "OpK", Health = 300, BaseAttack = 67 };
         
         hero.PrintStatus();
-         monster. PrintStatus();
+         monster.PrintStatus();
         
         while (hero.Health > 0 && monster.Health > 0)
         {
@@ -32,6 +32,6 @@ class Program
             monster.Hit(hero);
         }
         hero.PrintStatus();
-         monster. PrintStatus();
+        monster.PrintStatus();
     }
 }
