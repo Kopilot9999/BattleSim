@@ -1,34 +1,37 @@
-using System;
-class HelloWorld {
-  static void Main() {
-    Console.WriteLine("Напишіть ім'я героя");
-        string name = Console.ReadLine();
-        Console.WriteLine("Виберіть зброю(1-Меч, 2-Лук, 3-Посох) для вашого юніта");
-        string weapon = Console.ReadLine();
-        int.TryParse(weapon,out int weapons);
-        int[] power = {30, 15, 20};
-        int bosshp = 100;
-        if (weapons >= 1 && weapons <= power.Length)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                while (bosshp > 0)
-                {
-                    if (bosshp <=0){
-                        break;
-                    }
-                    else{
-                    Console.WriteLine($"## {name} зносить {power[weapons - 1]} урона боссу ##");
-                    bosshp -= power[weapons - 1];
-                    Console.WriteLine($"у босса залишилося {bosshp} хп");
-                }}
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Ви перемогли босса");
-                
-            }
-            else
-            {
-                Console.WriteLine("Некоректний вибір зброї!");
-            }
-    Console.ResetColor();
-  }
+public class Hero
+{
+    public string Name;
+    public int Health;
+    public int BaseAttack;
+    
+    public void PrintStatus()
+    {
+        Console.WriteLine($" [СТАТУС) {Name} | HP: {Health} | Сила: {BaseAttack}");
+        
+    }
+    public void Hit(Hero target)
+    {
+        target. Health -= BaseAttack;
+        Console.WriteLine($"{Name} атакує {target.Name} i завдає {BaseAttack} шкоди!");
+        }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Hero hero = new Hero {Name = "Саня", Health = 200, BaseAttack =52};
+        Hero monster = new Hero { Name = "OpK", Health = 300, BaseAttack = 67 };
+        
+        hero.PrintStatus();
+         monster. PrintStatus();
+        
+        while (hero.Health > 0 && monster.Health > 0)
+        {
+            hero.Hit(monster);
+            monster.Hit(hero);
+        }
+        hero.PrintStatus();
+         monster. PrintStatus();
+    }
 }
